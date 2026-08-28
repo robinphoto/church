@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="검단중앙교회 사진 앨범">
+    <title>검단중앙교회 사진 앨범</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="profile">
+        <img class="profile__avatar" data-asset="profile/church.png" alt="김동은 안수집사 프로필 사진">
+        <div>
+          <p class="eyebrow">CHURCH PHOTO ARCHIVE</p>
+          <h1>검단중앙교회 사진 앨범</h1>
+          <p class="profile__credit">촬영 — 김동은 안수집사</p>
+          <p class="profile__description">교회의 예배와 행사, 공동체의 소중한 순간을 기록합니다.<br>앨범을 선택하면 Google 포토에서 전체 사진을 볼 수 있습니다.</p>
+          <div class="profile__stats" aria-label="전체 앨범 통계">
+            <span><img data-icon="folder.svg" alt=""><span id="total-albums">총 앨범 수 계산 중</span></span>
+            <span><img data-icon="image.svg" alt=""><span id="total-photos">총 사진 수 계산 중</span></span>
+          </div>
+        </div>
+      </header>
+
+      <section class="filters" aria-label="앨범 검색 조건">
+        <div class="primary-filters">
+          <div class="filter-group">
+            <h2>부서별</h2>
+            <div class="filter-buttons" id="department-filters"></div>
+          </div>
+          <div class="filter-group">
+            <h2>행사별</h2>
+            <div class="filter-buttons" id="event-filters"></div>
+          </div>
+        </div>
+        <details class="advanced-search">
+          <summary>검색 옵션 <span>연도, 월, 장소와 키워드</span><img class="chevron chevron--down" data-icon="chevron-down.svg" alt=""><img class="chevron chevron--up" data-icon="chevron-up.svg" alt=""></summary>
+          <div class="advanced-search__body">
+            <div class="filter-group"><h2>연도</h2><div class="filter-buttons" id="year-filters"></div></div>
+            <div class="filter-group"><h2>월</h2><div class="filter-buttons" id="month-filters"></div></div>
+            <div class="filter-group"><h2>장소</h2><div class="filter-buttons" id="place-filters"></div></div>
+            <label class="keyword-search"><span>키워드</span><span class="keyword-search__field"><input id="keyword-input" type="search" placeholder="앨범명 검색" autocomplete="off"><img data-icon="search.svg" alt=""></span></label>
+          </div>
+        </details>
+        <div class="results-toolbar">
+          <p id="result-summary" aria-live="polite">앨범을 불러오는 중입니다.</p>
+          <div class="results-controls">
+            <button class="sort-control open-mode-control" id="open-mode-toggle" type="button" aria-label="현재 새창으로 열기, 팝업창으로 변경">
+              <img data-icon="external-link.svg" alt="">
+              <span>새창</span>
+            </button>
+            <button class="sort-control" id="sort-toggle" type="button" aria-label="현재 최근순, 오래된순으로 변경">
+              <img data-icon="clock-arrow-down.svg" alt="">
+              <span>최근순</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="album-grid" id="album-grid" aria-label="앨범 목록"></section>
+      <p class="empty-state" id="empty-state" hidden>조건에 맞는 앨범이 없습니다.</p>
+      <p class="error-state" id="error-state" hidden>앨범 데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</p>
+    </main>
+    <template id="album-card-template">
+      <article class="album-card"><a class="album-card__link" target="_blank" rel="noopener noreferrer"><div class="album-card__image-wrap"><img class="album-card__image" loading="lazy" alt=""><span class="album-card__year"></span><span class="album-card__photo-count"></span></div><h2 class="album-card__title"></h2><p class="album-card__meta"></p></a></article>
+    </template>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
